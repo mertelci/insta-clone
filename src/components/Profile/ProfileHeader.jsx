@@ -55,7 +55,7 @@ function ProfileHeader() {
     <Flex gap={{ base: 4, sm: 10 }} py={0} direction={{ base: "column", sm: "row" }} mx={10}>
       {/* avatar */}
       <AvatarGroup
-        size={{ base: "xl", md: "2xl" }}
+        size={{ base: "lg", md: "2xl" }}
         justifySelf={"center"}
         alignSelf={"flex-start"}
 
