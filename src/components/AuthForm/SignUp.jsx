@@ -1,31 +1,63 @@
-import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-import { Alert, AlertIcon, Button, Input, InputGroup, InputRightElement } from '@chakra-ui/react'
-import React, { useState } from 'react'
-import useSignupEmailPass from '../../hooks/useSignupEmailPass';
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import { Alert, AlertIcon, Button, Input, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { useState } from "react";
+import useSignUpWithEmailAndPassword from "../../hooks/useSignUpWithEmailAndPassword";
 
-function SignUp() {
+const Signup = () => {
     const [inputs, setInputs] = useState({
         fullName: "",
         username: "",
-        email: '',
-        password: ''
+        email: "",
+        password: "",
     });
-
-    const [showPassword, setshowPassword] = useState(false);
-    const { loading, error, signup } = useSignupEmailPass()
+    const [showPassword, setShowPassword] = useState(false);
+    const { loading, error, signup } = useSignUpWithEmailAndPassword();
 
     return (
         <>
-
-            <Input placeholder='Email' fontSize={12} type='email' value={inputs.email} onChange={(e) => setInputs({ ...inputs, email: e.target.value })} size={"sm"} bg={"#121212"} color={"#f5f5f5"} />
-            <Input placeholder='Username' fontSize={12} type='text' value={inputs.username} onChange={(e) => setInputs({ ...inputs, username: e.target.value })} size={"sm"} bg={"#121212"} color={"#f5f5f5"} />
-            <Input placeholder='Full Name' fontSize={12} type='text' value={inputs.fullName} onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })} size={"sm"} bg={"#121212"} color={"#f5f5f5"} />
-
-
+            <Input
+                borderRadius={5}
+                bg={"#121212"}
+                placeholder='Email'
+                fontSize={12}
+                type='email'
+                size={"sm"}
+                value={inputs.email}
+                onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+            />
+            <Input
+                borderRadius={5}
+                bg={"#121212"}
+                placeholder='Username'
+                fontSize={12}
+                type='text'
+                size={"sm"}
+                value={inputs.username}
+                onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
+            />
+            <Input
+                borderRadius={5}
+                bg={"#121212"}
+                placeholder='Full Name'
+                fontSize={12}
+                type='text'
+                size={"sm"}
+                value={inputs.fullName}
+                onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
+            />
             <InputGroup>
-                <Input placeholder='Password' fontSize={12} type={showPassword ? "text" : 'password'} value={inputs.password} onChange={(e) => setInputs({ ...inputs, password: e.target.value })} size={"sm"} bg={"#121212"} color={"#f5f5f5"} />
-                <InputRightElement height={"full"} >
-                    <Button variant={"ghost"} size={"sm"} onClick={() => setshowPassword(!showPassword)} bg={"#121212"} >
+                <Input
+                    borderRadius={5}
+                    bg={"#121212"}
+                    placeholder='Password'
+                    fontSize={12}
+                    type={showPassword ? "text" : "password"}
+                    value={inputs.password}
+                    size={"sm"}
+                    onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
+                />
+                <InputRightElement h='full'>
+                    <Button variant={"ghost"} size={"sm"} onClick={() => setShowPassword(!showPassword)}>
                         {showPassword ? <ViewIcon /> : <ViewOffIcon />}
                     </Button>
                 </InputRightElement>
@@ -38,16 +70,19 @@ function SignUp() {
                 </Alert>
             )}
 
-            <Button w={"full"} bg={"blue.400"} _hover={{ bg: "blue.600" }} size={"sm"} fontSize={14}
+            <Button
+                w={"full"}
+                bg={"#2b6cb0"}
+                _hover={{ bg: "#2c5282" }}
+                size={"sm"}
+                fontSize={14}
                 isLoading={loading}
-                onClick={() => signup(inputs)}>
-                Sign up
-            </Button >
-
-
-
+                onClick={() => signup(inputs)}
+            >
+                Sign Up
+            </Button>
         </>
-    )
-}
+    );
+};
 
-export default SignUp
+export default Signup;

@@ -2,7 +2,7 @@ import { Box, Button, Flex, Image, Input, Text, VStack } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Login from './Login';
-import SignUp from './SignUp';
+import Signup from './SignUp';
 import GoogleAuth from './GoogleAuth';
 
 function Authform() {
@@ -14,7 +14,7 @@ function Authform() {
                     <Image src="Instagram-Wordmark-White-Logo.wine.png" h={40} cursor={"pointer"} alt='Instagram' />
 
 
-                    {isLogin ? <Login /> : <SignUp />}
+                    {isLogin ? <Login /> : <Signup />}
 
 
                     {/*OR */}

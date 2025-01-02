@@ -35,7 +35,7 @@ function Login() {
                 </Alert>
             )}
 
-            <Button w={"full"} bg={"blue.400"} _hover={{ bg: "blue.600" }} size={"sm"} fontSize={14} isLoading={loading} onClick={() => login(inputs)} >
+            <Button w={"full"} bg={"#2b6cb0"} _hover={{ bg: "blue.700" }} size={"sm"} fontSize={14} isLoading={loading} onClick={() => login(inputs)} >
                 Log in
             </Button >
 
