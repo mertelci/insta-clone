@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useAuthStore from "../store/authStore";
+import useAuthStore from "../store/AuthStore";
 import useUserProfileStore from "../store/userProfileStore";
 import useShowToast from "./useShowToast";
 import { firestore } from "../firebase/firebase";

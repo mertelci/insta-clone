@@ -6,7 +6,7 @@ import { MdDelete } from 'react-icons/md';
 import Comment from '../Comment/Comment';
 import PostFooter from '../FeedPosts/PostFooter';
 import useUserProfileStore from '../../store/userProfileStore';
-import useAuthStore from '../../store/authStore';
+import useAuthStore from '../../store/AuthStore';
 import { firestore, storage } from "../../firebase/firebase";
 import { deleteObject, ref } from 'firebase/storage';
 import { arrayRemove, deleteDoc, doc, updateDoc } from 'firebase/firestore';

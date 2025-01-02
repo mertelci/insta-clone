@@ -1,7 +1,7 @@
 import { Avatar, AvatarGroup, Button, Flex, Text, useDisclosure, VStack } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import useUserProfileStore from '../../store/userProfileStore'
-import useAuthStore from '../../store/authStore';
+import useAuthStore from '../../store/AuthStore';
 import EditProfile from '../Profile/EditProfile';
 import useFollowUser from '../../hooks/useFollowUser';
 import FollowersFollowingModal from '../Modals/FollowersFollowingModal';
