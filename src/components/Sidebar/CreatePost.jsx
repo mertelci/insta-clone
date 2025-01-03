@@ -25,12 +25,8 @@ const CreatePost = () => {
 
     const handlePostCreation = async () => {
         if (isLoading) return;
-
-        if (!authuser) {
-            showToast("Error", "User is not authenticated", "error");
-            return;
-        }
-
+        if (!authuser || !authuser.uid) throw new Error("User is not authenticated");
+        if (!selectedFile) throw new Error("Please select an image");
         try {
             await handleCreatePost(selectedFile, caption);
             onClose();
@@ -125,6 +121,11 @@ function useCreatePost() {
     const createPost = usePostStore(state => state.createPost);
     const addPost = useUserProfileStore(state => state.addPost);
     const { pathname } = useLocation();
+
+
+    if (!authuser) {
+        return <Text color="red.500">You need to be logged in to create a post.</Text>;
+    }
 
     const handleCreatePost = async (selectedFile, caption) => {
         if (isLoading) return;
