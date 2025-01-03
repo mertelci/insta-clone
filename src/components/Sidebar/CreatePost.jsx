@@ -24,6 +24,7 @@ const CreatePost = () => {
     const showToast = useShowToast();
 
     const handlePostCreation = async () => {
+        if (isLoading) return;
         try {
             await handleCreatePost(selectedFile, caption);
             onClose();
