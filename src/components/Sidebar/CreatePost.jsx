@@ -25,6 +25,12 @@ const CreatePost = () => {
 
     const handlePostCreation = async () => {
         if (isLoading) return;
+
+        if (!authuser) {
+            showToast("Error", "User is not authenticated", "error");
+            return;
+        }
+
         try {
             await handleCreatePost(selectedFile, caption);
             onClose();
