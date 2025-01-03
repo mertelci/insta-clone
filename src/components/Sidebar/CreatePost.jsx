@@ -144,7 +144,7 @@ function useCreatePost() {
 
             if (userProfile.uid === authuser.uid) createPost({ ...newPost, id: postDocRef.id });
 
-            if (pathname !== "/" && userProfile.uid === authuser.uid) addPost({ ...newPost, id: postDocRef.id });
+            if (userProfile.uid === authuser.uid) addPost({ ...newPost, id: postDocRef.id });
 
             showToast("Success", "Post created successfully", "success");
         } catch (error) {
