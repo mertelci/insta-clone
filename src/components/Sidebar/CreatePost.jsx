@@ -33,7 +33,7 @@ const CreatePost = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [caption, setCaption] = useState("");
     const imageRef = useRef(null);
-    const { handleImageChange, selectedFile, setSelectedFile } = usePreviewImg();
+    const { handleImageChange, selectedFile, setselectedFile } = usePreviewImg();
     const showToast = useShowToast();
     const { isLoading, handleCreatePost } = useCreatePost();
 
@@ -42,7 +42,7 @@ const CreatePost = () => {
             await handleCreatePost(selectedFile, caption);
             onClose();
             setCaption("");
-            setSelectedFile(null);
+            setselectedFile(null);
         } catch (error) {
             showToast("Error", error.message, "error");
         }
@@ -101,7 +101,7 @@ const CreatePost = () => {
                                     top={2}
                                     right={2}
                                     onClick={() => {
-                                        setSelectedFile(null);
+                                        setselectedFile(null);
                                     }}
                                 />
                             </Flex>
